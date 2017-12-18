@@ -58,7 +58,7 @@ class ZhihuSpider(scrapy.Spider):
     def get_ecode(self, response):
         s = json.loads(response.body)
         qrcode_terminal.draw('https://www.zhihu.com/account/scan/login/' + s['token'], 1)
-        print('Plz scan your Qrcode in 10s……')
+        print('Plz scan your Qrcode in 10s......')
         time.sleep(10)
 
         yield scrapy.Request(
