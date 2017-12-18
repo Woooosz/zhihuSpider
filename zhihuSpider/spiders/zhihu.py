@@ -96,7 +96,7 @@ class ZhihuSpider(scrapy.Spider):
 
         item['description'] = str(s['description'])
         item['following_question_count'] = int(s['following_question_count'])
-        item['following_topic_count'] int(s['following_topic_count'])
+        item['following_topic_count'] = int(s['following_topic_count'])
 
         try:
             item['business'] = str(s['business']['name'])
