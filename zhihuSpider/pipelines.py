@@ -22,10 +22,12 @@ class ZhihuspiderPipeline(object):
     def process_item(self, item, spider):
         if item.__class__ == ZhihuspiderItem:
             self.cursor.execute(
-                "INSERT INTO person_info VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                "INSERT INTO person_info VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                 (item['name'], item['gender'], item['url_token'], item['answer_count'],
                     item['voteup_count'],item['thanked_count'],item['participated_live_count'],
-                    item['favorited_count'], item['follower_count'], item['following_count'], item['locations'])
+                    item['favorited_count'], item['follower_count'], item['following_count'], item['locations'],
+                    item['description'], item['educations'], item['following_question_count'], item['following_topic_count'], item['business']
+                    )
                 )
             self.connect.commit()
         else:

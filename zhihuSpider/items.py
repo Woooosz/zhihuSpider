@@ -22,3 +22,9 @@ class ZhihuspiderItem(scrapy.Item):
     follower_count = scrapy.Field()
     following_count = scrapy.Field()
     locations = scrapy.Field()
+    description = scrapy.Field()
+    educations = scrapy.Field()
+    following_question_count = scrapy.Field()
+    following_topic_count = scrapy.Field()
+    business = scrapy.Field()
+

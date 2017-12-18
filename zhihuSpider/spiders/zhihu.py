@@ -93,10 +93,26 @@ class ZhihuSpider(scrapy.Spider):
         item['favorited_count'] = int(s['favorited_count'])
         item['follower_count'] = int(s['follower_count'])
         item['following_count'] = int(s['following_count'])
+
+        item['description'] = str(s['description'])
+        item['following_question_count'] = int(s['following_question_count'])
+        item['following_topic_count'] int(s['following_topic_count'])
+
+        try:
+            item['business'] = str(s['business']['name'])
+        except Exception:
+            item['business'] = ''
+
+        try:
+            item['educations'] = str(s['locations'][0]['school']['name'])
+        except Exception:
+            item['educations'] = ''
+
         try:
             item['locations'] = str(s['locations'][0]['name'])
         except Exception:
             item['locations'] = ''
+
         yield item
 
     def parse_followers(self, response):
