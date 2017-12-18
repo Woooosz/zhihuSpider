@@ -80,7 +80,7 @@ class ZhihuSpider(scrapy.Spider):
         )
 
     def parse_person_info(self, response):
-        r.sadd('finish_ID',response.meta['url_token'])
+        self.r.sadd('finish_ID',response.meta['url_token'])
         s = json.loads(response.body.decode('utf8'))
         item = ZhihuspiderItem()
         item['name'] = str(s['name'])
@@ -102,7 +102,7 @@ class ZhihuSpider(scrapy.Spider):
     def parse_followers(self, response):
         s = json.loads(response.body.decode('utf8'))
         for i in s['data']:
-            if !r.sismember('finish_ID',i['url_token']):
+            if not self.r.sismember('finish_ID',i['url_token']):
                 yield scrapy.Request(
                     url =self.url_person_info_url % i['url_token'],
                     meta={'cookiejar':response.meta['cookiejar'],'url_token':i['url_token']},
