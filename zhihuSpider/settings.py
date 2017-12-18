@@ -36,6 +36,25 @@ ROBOTSTXT_OBEY = False
 COOKIES_ENABLED = True
 COOKIES_DEBUG = False
 
+HEADERS = {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip,deflate",
+    "Accept-Language": "en-US,en;q=0.8,zh-TW;q=0.6,zh;q=0.4",
+    "Connection": "keep-alive",
+    "Content-Type":" application/x-www-form-urlencoded; charset=UTF-8",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36",
+    "Referer": "https://www.zhihu.com/"
+    }
+
+
+# Mysql configure
+MYSQL_HOST = '127.0.0.1'
+MYSQL_DBNAME = 'zhihu'
+MYSQL_USER = 'root'
+MYSQL_PASSWD = 'Wsz960402'
+#Redis configure
+REDIS_HOST = '127.0.0.1'
+REDIS_PORT = 6379
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 
@@ -68,11 +87,6 @@ COOKIES_DEBUG = False
 ITEM_PIPELINES = {
     'zhihuSpider.pipelines.ZhihuspiderPipeline': 300,
 }
-# Mysql configure
-MYSQL_HOST = '127.0.0.1'
-MYSQL_DBNAME = 'zhihu'
-MYSQL_USER = 'root'
-MYSQL_PASSWD = 'Wsz960402'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 AUTOTHROTTLE_ENABLED = True
