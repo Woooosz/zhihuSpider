@@ -7,8 +7,7 @@
 import pymysql
 from zhihuSpider import settings
 from zhihuSpider.items import ZhihuspiderItem
-from scrapy import log
-
+import logging
 
 class ZhihuspiderPipeline(object):
     def __init__(self):
@@ -34,6 +33,6 @@ class ZhihuspiderPipeline(object):
                     )
                 self.connect.commit()
             except Exception:
-                log.msg("Write database exception", level=log.WARNING)
+                logging.warning("Database Write Exception")
         else:
             pass
