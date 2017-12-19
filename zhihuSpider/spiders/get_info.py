@@ -22,7 +22,7 @@ class ZhihuSpider(scrapy.Spider):
     url_person_follower_url = 'http://www.zhihu.com/api/v4/members/%s/followees?limit=10&offset=%s'
     def start_requests(self):
         while True:
-            url_token = self.red.spop('zhihu:request_ID').decode('utf8')
+            url_token = self.red.spop('zhihu:request_ID')
             if url_token:
                 yield scrapy.Request(
                     url =self.url_person_info_url % url_token,

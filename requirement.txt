@@ -1,0 +1,7 @@
+scrapy
+redis
+redis-scrapy
+pillow
+requests
+qrcode
+mysql-python
