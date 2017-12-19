@@ -36,7 +36,7 @@ DOWNLOAD_DELAY = 2
 COOKIES_ENABLED = True
 COOKIES_DEBUG = False
 
-HEADERS = {
+DEFAULT_REQUEST_HEADERS = {
     "Accept": "*/*",
     "Accept-Encoding": "gzip,deflate",
     "Accept-Language": "en-US,en;q=0.8,zh-TW;q=0.6,zh;q=0.4",
@@ -47,6 +47,17 @@ HEADERS = {
     }
 
 
+LOG_LEVEL = 'DEBUG'
+
+DUPEFILTER_CLASS = 'scrapy.dupefilters.RFPDupeFilter'
+
+#The class used to detect and filter duplicate requests.
+
+#The default (RFPDupeFilter) filters based on request fingerprint using the scrapy.utils.request.request_fingerprint function. In order to change the way duplicates are checked you could subclass RFPDupeFilter and override its request_fingerprint method. This method should accept scrapy Request object and return its fingerprint (a string).
+
+#By default, RFPDupeFilter only logs the first duplicate request. Setting DUPEFILTER_DEBUG to True will make it log all duplicate requests.
+DUPEFILTER_DEBUG =True
+
 # Mysql configure
 MYSQL_HOST = '127.0.0.1'
 MYSQL_DBNAME = 'zhihu'
@@ -55,6 +66,14 @@ MYSQL_PASSWD = 'Wsz960402'
 #Redis configure
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
+
+
+
+
+#scrapy-redis
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+SCHEDULER_PERSIST = True
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 

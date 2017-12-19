@@ -27,4 +27,3 @@ class ZhihuspiderItem(scrapy.Item):
     following_question_count = scrapy.Field()
     following_topic_count = scrapy.Field()
     business = scrapy.Field()
-
