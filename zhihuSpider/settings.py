@@ -41,7 +41,6 @@ DEFAULT_REQUEST_HEADERS = {
     "Accept-Encoding": "gzip,deflate",
     "Accept-Language": "en-US,en;q=0.8,zh-TW;q=0.6,zh;q=0.4",
     "Connection": "keep-alive",
-    "Content-Type":" application/x-www-form-urlencoded; charset=UTF-8",
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36",
     "Referer": "https://www.zhihu.com/"
     }
@@ -56,7 +55,7 @@ DUPEFILTER_CLASS = 'scrapy.dupefilters.RFPDupeFilter'
 #The default (RFPDupeFilter) filters based on request fingerprint using the scrapy.utils.request.request_fingerprint function. In order to change the way duplicates are checked you could subclass RFPDupeFilter and override its request_fingerprint method. This method should accept scrapy Request object and return its fingerprint (a string).
 
 #By default, RFPDupeFilter only logs the first duplicate request. Setting DUPEFILTER_DEBUG to True will make it log all duplicate requests.
-DUPEFILTER_DEBUG =True
+DUPEFILTER_DEBUG = True
 
 # Mysql configure
 MYSQL_HOST = '127.0.0.1'
@@ -66,9 +65,6 @@ MYSQL_PASSWD = 'Wsz960402'
 #Redis configure
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
-
-
-
 
 #scrapy-redis
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
@@ -91,9 +87,10 @@ SCHEDULER_PERSIST = True
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'zhihuSpider.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'zhihuSpider.zhihuMiddlewares.RotateUserAgentMiddleware': 543,
+    'zhihuSpider.zhihuMiddlewares.CookiesMiddleware': 544
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
