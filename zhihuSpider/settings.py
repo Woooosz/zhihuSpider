@@ -41,7 +41,7 @@ DEFAULT_REQUEST_HEADERS = {
     "Accept-Encoding": "gzip,deflate",
     "Accept-Language": "en-US,en;q=0.8,zh-TW;q=0.6,zh;q=0.4",
     "Connection": "keep-alive",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36",
     "Referer": "https://www.zhihu.com/"
     }
 
@@ -102,6 +102,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'zhihuSpider.pipelines.ZhihuspiderPipeline': 300,
+    #'scrapy_redis.pipelines.RedisPipeline': 400
 }
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
